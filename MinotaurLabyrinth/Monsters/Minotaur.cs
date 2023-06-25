@@ -85,9 +85,10 @@
         /// Displays the current state of the minotaur.
         /// </summary>
         /// <returns>Returns a DisplayDetails object containing the minotaur's display information.</returns>
-        public override DisplayDetails Display()
-        {
-            return new DisplayDetails("[M]", ConsoleColor.Red);
-        }
+      public override DisplayDetails Display()
+    {
+        
+        return new DisplayDetails("[M]", ConsoleColor.Red);
+    }
     }
 }

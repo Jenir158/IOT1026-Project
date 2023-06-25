@@ -21,6 +21,7 @@
         /// Gets a value indicating whether the room is currently contains a monster or an event.
         /// </summary>
         public virtual bool IsActive { get; protected set; }
+        public RoomType RoomType { get; internal set; }
 
         /// <summary>
         /// Adds a monster to the room.

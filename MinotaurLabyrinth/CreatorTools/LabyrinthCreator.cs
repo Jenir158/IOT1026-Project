@@ -23,6 +23,7 @@
             Map map = CreateMap(mapSize);
             ProceduralGenerator.Initialize(map);
             Location start = RandomizeMap(map);
+
             return (map, InitializePlayer(start));
         }
 
@@ -45,7 +46,7 @@
         {
             Location start = PlaceEntrance(map);
             PlaceSword(map, start);
-            AddRooms(RoomType.Pit, map);
+            AddRooms(RoomType.TrapRoom, map);
             InitializeMonsters(map);
             return start;
         }
@@ -97,17 +98,21 @@
         {
             return new Hero(start);
         }
+        
+
+
 
         /// <summary>
         /// Initializes monsters in the map, ensuring they do not overlap with existing locations.
         /// </summary>
         /// <param name="map">The Map in which monsters should be initialized.</param>
-        private static void InitializeMonsters(Map map)
-        {
-            // Ensure monster locations do not overlap existing locations on the map
-            Location minotaurLocation = ProceduralGenerator.GetRandomLocation();
-            Room room = map.GetRoomAtLocation(minotaurLocation);
-            room.AddMonster(new Minotaur());
-        }
+       private static void InitializeMonsters(Map map)
+{
+    // Ensure monster locations do not overlap existing locations on the map
+    Location muzanLocation = ProceduralGenerator.GetRandomLocation();
+    Room muzanRoom = map.GetRoomAtLocation(muzanLocation);
+    muzanRoom.AddMonster(new Muzan());
+}
+
     }
 }

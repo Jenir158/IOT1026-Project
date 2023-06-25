@@ -18,6 +18,13 @@
         }
     }
 
+    public abstract class Fightcommand : ISecretCommand
+    {
+        //logic for fighting
+        public abstract void Execute(Hero hero, Map map);
+    }
+
+
     // Represents a movement command, along with a specific direction to move.
     public abstract class BaseMoveCommand : ICommand
     {
@@ -94,6 +101,8 @@
             map.DebugMode = !map.DebugMode;
         }
     }
+
+    
 
     public class QuitCommand : ICommand
     {

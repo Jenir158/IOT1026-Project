@@ -4,6 +4,8 @@
     {
         public static void ScreenUpdate(Hero hero, Map map)
         {
+            Console.Clear(); // Clear the console
+
             ConsoleHelper.WriteLine("--------------------------------------------------------------------------------", ConsoleColor.Gray);
             ConsoleHelper.WriteLine("Map", ConsoleColor.White);
             DisplayMap(hero, map);
@@ -25,7 +27,9 @@
                 ConsoleHelper.WriteLine("You sense nothing of interest nearby.", ConsoleColor.Gray);
             if (hero.HasSword)
                 ConsoleHelper.WriteLine("You are currently carrying the sword! Make haste for the exit!", ConsoleColor.DarkYellow);
+            ConsoleHelper.WriteLine($"Health: {hero.Health}", ConsoleColor.Yellow); // Display the hero's health
         }
+
 
         // Asks each sense to display itself if relevant. Returns true if something is sensed and false otherwise.
         private static bool DisplaySenses(Hero hero, Map map)
@@ -39,6 +43,7 @@
                 (int lx, int ly) = loc;
                 int distanceFromPlayer = Math.Abs(lx - px) + Math.Abs(ly - py);
                 if (room.DisplaySense(hero, distanceFromPlayer)) ++sensedRooms;
+                
             }
             return sensedRooms > 0;
         }
